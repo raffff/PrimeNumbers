@@ -33,6 +33,9 @@ public class PrimeNumber {
                     flag = true;
                     sc.close();
                     break;
+                default:
+                    System.out.println("You must enter a number from the available actions.");
+                    break;
             }
         }
     }
@@ -54,30 +57,45 @@ public class PrimeNumber {
     private static void printPrimeNumber(int n, boolean b) {
 
         if (b) {
+            System.out.println();
             System.out.println(n + " is a prime number.");
-            System.out.println();
+
         } else {
-            System.out.println(n + " is not a prime number.");
             System.out.println();
+            System.out.println(n + " is not a prime number.");
+
         }
 
     }
 
     private static void printPrimeNumbers(int n) {
 
+        int count = 0;
+
         if (n >= 2) {
+
+            System.out.println();
             System.out.println("Prime numbers: ");
-            for (int i = 2; i < n; i++) {
+
+            for (int i = 0; i < n; i++) {
                 if (isPrime(i)) {
-                    System.out.print(i + " ");
+                    count++;
+                    if (count % 10 == 0) {
+                        System.out.println(i + " ");
+                    } else
+                        System.out.print(i + " ");
                 }
             }
+
+            System.out.println();
+            System.out.println("\nNumber of prime numbers: " + count);
+
         } else {
+            System.out.println();
             System.out.println("You must enter a number greater than\n" +
                     "or equal to 2.");
         }
 
-        System.out.println();
     }
 
     private static void printMenu() {
